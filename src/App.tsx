@@ -1,27 +1,17 @@
-import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import Industries from "@/components/Industries";
-import Services from "@/components/Services";
-import CaseStudy from "@/components/CaseStudy";
-import Process from "@/components/Process";
-import Founder from "@/components/Founder";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AdminPage from "@/pages/AdminPage";
+import HomePage from "@/pages/HomePage";
+import QuotePage from "@/pages/QuotePage";
 
 export default function App() {
   return (
-    <>
-      <Nav />
-      <Hero />
-      <Stats />
-      <Industries />
-      <Services />
-      <CaseStudy />
-      <Process />
-      <Founder />
-      <Contact />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/q/:token" element={<QuotePage />} />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
